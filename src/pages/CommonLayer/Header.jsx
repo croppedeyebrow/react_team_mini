@@ -4,7 +4,6 @@ import HeaderMatpsLogo from "../../images/matps가로로고.png";
 import HeadSearchIcon from "../../images/SearchIcon.png";
 import CommunicationIcon from "../../images/ChatIcon.png";
 import MypageIcon from "../../images/UserIcon.png";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 const HeaderTab = styled.div`
   display: flex;
@@ -27,35 +26,27 @@ const HeaderSearchBar = styled.div`
   margin-left: 207px;
 `;
 
-const HeaderRectangle = styled.div`
+const HeaderRectangle = styled.input`
   display: flex;
   align-items: center;
+  text-align: center;
+  background-color: #e6e6e6;
+  border: none;
   border-radius: 30px 0 0 30px;
   height: 52px;
-  flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+  width: 446px;
 `;
 
-const HeaderSearchinput = styled.input`
-  display: flex;
-  align-items: center;
-  outline: none;
-  /* background-color: #e6e6e6;
-  /* border: 1px solid transparent; */
-  border-radius: 30px 0 0 30px;
-  padding: 0 10px;
-  height: 52px;
-  width: 370px;
-`;
-
-const HeaderSearchButton = styled.div`
+const HeaderSearchWrapper = styled.div`
   background-color: #d94d4d;
   border-radius: 0 30px 30px 0;
   width: 76px;
-  height: 52px;
+  height: 54px;
   display: flex;
+
   justify-content: center;
   align-items: center;
-  /* transition transform 0.15s; */
+  transition: background-color 0.15s;
 
   &:hover {
     background-color: #bb3939;
@@ -66,8 +57,9 @@ const HeaderSearch = styled.img`
   height: 30px;
   width: 30px;
   transition: transform 0.15s;
-  ${HeaderSearchButton}:hover & {
-    transform: scale(0.9); 
+  ${HeaderSearchWrapper}:hover & {
+    transform: scale(0.9);
+  }
 `;
 
 const HeaderHeadIcon = styled.div`
@@ -105,17 +97,15 @@ const Header = () => {
       <HeaderImg alt="헤더가로로고" src={HeaderMatpsLogo} />
 
       <HeaderSearchBar>
-        <HeaderRectangle>
-          <HeaderSearchinput
-            type="text"
-            value={searchQuery}
-            onChange={handleInputChange}
-            placeholder="당신이 고대하던 순간을 위한 검색어를 입력하세요"
-          />
-          <HeaderSearchButton onClick={handleSearchClick}>
-            <HeaderSearch alt="검색창돋보기" src={HeadSearchIcon} />
-          </HeaderSearchButton>
-        </HeaderRectangle>
+        <HeaderRectangle
+          type="text"
+          value={searchQuery}
+          onChange={handleInputChange}
+          placeholder="당신이 고대하던 순간을 위한 검색어를 입력하세요"
+        />
+        <HeaderSearchWrapper onClick={handleSearchClick}>
+          <HeaderSearch alt="검색창돋보기" src={HeadSearchIcon} />
+        </HeaderSearchWrapper>
       </HeaderSearchBar>
 
       <HeaderHeadIcon>
