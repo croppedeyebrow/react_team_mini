@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "./Header";
+import Layer from "./Layer";
+import Footer from "./Footer";
 
 const ProjectLayer = styled.div`
   width: 1920px;
@@ -21,20 +22,13 @@ const ContainerStyle = styled.div`
   /* border: 3px solid #222; */
 `;
 
-const MainLayer = styled.div`
-  border: 3px solid #666;
-  padding-top: 1rem;
-  width: 1280px;
-  height: 100%;
-`;
-
 const Container = () => {
   return (
     <>
       <ProjectLayer>
         <ContainerStyle>
           <Header />
-          <MainLayer>각자 디자인 영역</MainLayer>
+          <Layer />
           <Footer />
         </ContainerStyle>
       </ProjectLayer>
