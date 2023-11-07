@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "./Header";
-import Layer from "./Layer";
 import Footer from "./Footer";
+import BoardList from "./BoardList";
 
 const ProjectLayer = styled.div`
   width: 1920px;
@@ -28,7 +28,7 @@ const Container = () => {
       <ProjectLayer>
         <ContainerStyle>
           <Header />
-          <Layer />
+            <BoardList/>
           <Footer />
         </ContainerStyle>
       </ProjectLayer>
