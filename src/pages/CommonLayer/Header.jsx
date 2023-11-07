@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import HeaderMatpsLogo from "../../images/matps가로로고.png";
 import HeadSearchIcon from "../../images/SearchIcon.png";
 import CommunicationIcon from "../../images/ChatIcon.png";
 import MypageIcon from "../../images/UserIcon.png";
+import DetailSearchScreen from "./HeaderSearchDetail";
 
 const HeaderTab = styled.div`
   display: flex;
@@ -12,6 +13,8 @@ const HeaderTab = styled.div`
   height: 80px;
   border: 2px solid red;
   align-items: center;
+  position: relative;
+  z-index: 1;
 `;
 
 const HeaderImg = styled.img`
@@ -36,6 +39,7 @@ const HeaderRectangle = styled.input`
   border-radius: 30px 0 0 30px;
   height: 52px;
   width: 446px;
+  cursor: pointer;
 `;
 
 const HeaderSearchWrapper = styled.div`
@@ -87,41 +91,95 @@ const HeaderUserInterface = styled.img`
   }
 `;
 
+const DetailSearchScreenWrapper = styled.div`
+  position: absolute;
+  left: 23px;
+  width: 100%;
+  height: 312px;
+  top: 80px;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: top 0.5s ease;
+`;
+
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  z-index: 2;
+  cursor: pointer;
+`;
+
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [showDetailSearch, setShowDetailSearch] = useState(false);
+  const modalRef = useRef(null);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
   const handleSearchClick = () => {
-    alert(
-      "당신의 맛있는 시간을 위한 장소를 검색합니다. 검색어: " + searchQuery
-    );
+    setShowDetailSearch(true);
   };
+
+  const handleDetailSearchWrapperClick = () => {
+    setShowDetailSearch(false);
+  };
+
+  const handleModalClick = (e) => {
+    if (modalRef.current === e.target) {
+      setShowDetailSearch(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 100) {
+      setShowDetailSearch(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <HeaderTab>
       <HeaderImg alt="헤더가로로고" src={HeaderMatpsLogo} />
-
-      {/* //검색창 */}
       <HeaderSearchBar>
         <HeaderRectangle
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
           placeholder="당신이 고대하던 순간을 위한 검색어를 입력하세요"
+          onClick={handleSearchClick}
         />
         <HeaderSearchWrapper onClick={handleSearchClick}>
           <HeaderSearch alt="검색창돋보기" src={HeadSearchIcon} />
         </HeaderSearchWrapper>
       </HeaderSearchBar>
-
-      {/* 아이콘 */}
       <HeaderHeadIcon>
         <HeaderTalking alt="커뮤니티페이지" src={CommunicationIcon} />
         <HeaderUserInterface alt="로그인,마이페이지" src={MypageIcon} />
       </HeaderHeadIcon>
+      {showDetailSearch && (
+        <ModalBackground ref={modalRef} onClick={handleModalClick}>
+          <DetailSearchScreenWrapper onClick={handleDetailSearchWrapperClick}>
+            <DetailSearchScreen />
+          </DetailSearchScreenWrapper>
+        </ModalBackground>
+      )}
     </HeaderTab>
   );
 };
