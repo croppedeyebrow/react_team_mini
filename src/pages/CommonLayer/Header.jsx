@@ -24,6 +24,7 @@ const HeaderSearchBar = styled.div`
   display: flex;
   align-items: center;
   margin-left: 207px;
+  position: relative;
 `;
 
 const HeaderRectangle = styled.input`
@@ -43,7 +44,6 @@ const HeaderSearchWrapper = styled.div`
   width: 76px;
   height: 54px;
   display: flex;
-
   justify-content: center;
   align-items: center;
   transition: background-color 0.15s;
@@ -72,11 +72,19 @@ const HeaderTalking = styled.img`
   height: 50px;
   width: 50px;
   margin-right: 1rem;
+  transition: transform 0.15s;
+  &:hover {
+    transform: scale(0.9);
+  }
 `;
 
 const HeaderUserInterface = styled.img`
   height: 50px;
   width: 50px;
+  transition: transform 0.15s;
+  &:hover {
+    transform: scale(0.9);
+  }
 `;
 
 const Header = () => {
@@ -96,6 +104,7 @@ const Header = () => {
     <HeaderTab>
       <HeaderImg alt="헤더가로로고" src={HeaderMatpsLogo} />
 
+      {/* //검색창 */}
       <HeaderSearchBar>
         <HeaderRectangle
           type="text"
@@ -108,6 +117,7 @@ const Header = () => {
         </HeaderSearchWrapper>
       </HeaderSearchBar>
 
+      {/* 아이콘 */}
       <HeaderHeadIcon>
         <HeaderTalking alt="커뮤니티페이지" src={CommunicationIcon} />
         <HeaderUserInterface alt="로그인,마이페이지" src={MypageIcon} />
