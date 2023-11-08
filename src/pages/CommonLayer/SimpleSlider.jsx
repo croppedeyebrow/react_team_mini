@@ -3,8 +3,11 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SimpleSlider = () => {
+    
+    const navigate = useNavigate();
     
     const settings = {
         infinite: true, // 무한 캐러셀
@@ -308,3 +311,4 @@ const MoreLeft = styled.div`
 }
 
 export default SimpleSlider;
+

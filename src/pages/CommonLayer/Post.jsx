@@ -5,11 +5,13 @@ import { useState } from "react";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SimpleSlider from "./SimpleSlider";
+import { useNavigate } from "react-router-dom";
+import GlobalStyle from "../../style-component/Global_style";
+
 
 const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 1280px;
 `;
 
 const PostTitle = styled.div`
@@ -245,11 +247,11 @@ const Post2More = styled.div`
 const Post3 = styled.div`
     width: 100%;
     height: 900px;
-
-    
 `;
 
 const Post = () => {
+    const navigate = useNavigate();
+
     const post1 = [
         {
             title: "게시글 제목",
@@ -297,11 +299,10 @@ const Post = () => {
         }
     ]
 
-    
-  
-
     return (
-        <PostContainer>
+        <>
+            <GlobalStyle/>
+            <PostContainer>
             <PostTitle>
                 게시판
             </PostTitle>
@@ -396,6 +397,9 @@ const Post = () => {
                     <SimpleSlider/>
             </Post3>
         </PostContainer>
+
+        </>
+        
     )
 };
 

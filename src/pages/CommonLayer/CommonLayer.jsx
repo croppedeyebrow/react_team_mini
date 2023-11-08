@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
-import BoardList from "./BoardList";
+// import BoardList from "../BoardList";
 import Post from "./Post";
-import StoreLayer from "../../pages/StoreList/StoreLayer";
+import Posting from "./Posting";
+
+
+
+
 
 const ProjectLayer = styled.div`
   width: 1920px;
@@ -37,8 +41,9 @@ const Container = () => {
         <ContainerStyle>
           <Header />
           <MainLayer>
-            {/* <Post /> */}
-            <StoreLayer />
+            {/* <BoardList/> */}
+            {/* <Post/> */}
+            <Posting/>
           </MainLayer>
           <Footer />
         </ContainerStyle>

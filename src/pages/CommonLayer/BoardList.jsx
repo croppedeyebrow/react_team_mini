@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import GlobalStyle from "../../style-component/Global_style";
+
+
 
 const BoardContainer = styled.div`
   padding: 30px;
@@ -108,6 +112,8 @@ const PostListSearchBtn = styled.button`
 
 const Post = styled.div`
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
 `;
 
 const PostImg = styled.div`
@@ -175,6 +181,9 @@ const PostBottom = styled.div`
 `;
 
 const BoardList = () => {
+
+    const navigate = useNavigate();
+
     const toppost = [
         {title: "인기 게시글 1"},
         {title: "인기 게시글 2"},
@@ -248,13 +257,18 @@ const BoardList = () => {
             image:"https://firebasestorage.googleapis.com/v0/b/matps-4d340.appspot.com/o/%EC%8B%9D%EB%8B%B9%20%EB%A6%AC%EB%B7%B0%20%EC%9D%B4%EB%AF%B8%EC%A7%80%2F17-1.jpg?alt=media&token=05c1cf53-cf43-4df8-8c8e-4978deab2c5e",
         },
     ]
+
+    
+
   return (
-  <BoardContainer>
+    <>
+        <GlobalStyle/>
+        <BoardContainer>
     <Box>
       <Title>게시판</Title>
       <Center>
         <TopPost>
-            <TopPostImg>
+            <TopPostImg onClick={() => { navigate('./Post')}}>
                 실시간 인기 게시글 이미지
             </TopPostImg>
             <TopPostText>
@@ -264,7 +278,7 @@ const BoardList = () => {
                 <ul style={{ listStyleType: 'decimal', fontSize: '25px'}}>
                     {toppost.map((toppost, index) => (  
                         <li key={index}>
-                            <TopPostContent>{toppost.title}</TopPostContent>
+                            <TopPostContent onClick={() => { navigate('./Post')}}>{toppost.title}</TopPostContent>
                         </li>
                     ))}
                 </ul>
@@ -286,7 +300,7 @@ const BoardList = () => {
         <PostList>
         {post.map((post)=>(  
             <Post>
-                <PostImg>
+                <PostImg onClick={() => {navigate('/Post');}}>
                     <img src={post.image}></img>
                 </PostImg>
                 <PostContentTitle>
@@ -309,7 +323,7 @@ const BoardList = () => {
          ) )}      
         </PostList>
         <PostBottom>
-            <PostingBtn>
+            <PostingBtn onClick={() => { navigate('/Posting'); }}>
                 글쓰기
             </PostingBtn>
         </PostBottom> 
@@ -317,6 +331,8 @@ const BoardList = () => {
       </Center>  
       </Box>
     </BoardContainer>
+    </>
+  
   )
 };
 
