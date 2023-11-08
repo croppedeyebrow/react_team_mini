@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import BoardList from "./BoardList";
-import Post from "./Post"
+import Post from "./Post";
+import StoreLayer from "../../pages/StoreList/StoreLayer";
 
 const ProjectLayer = styled.div`
   width: 1920px;
@@ -36,7 +37,8 @@ const Container = () => {
         <ContainerStyle>
           <Header />
           <MainLayer>
-            <Post/>
+            {/* <Post /> */}
+            <StoreLayer />
           </MainLayer>
           <Footer />
         </ContainerStyle>

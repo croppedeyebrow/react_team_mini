@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import React from "react";
-import StoreListImg01 from "../images/음식 테스트 이미지.jpg";
-import HeartImg01 from "../images/HearIcon.png";
-import RatingStar01 from "../images/star.png";
+import StoreListBoxMap from "./StoreListBox";
 
 const CenterLayer = styled.div`
   display: flex;
-  /* border: 3px solid #666; */
-  /* background-color: #f0e9e9; */
   padding-top: 1rem;
   width: 1280px;
   height: 100%;
@@ -173,57 +169,6 @@ const StoreListScreen = styled.div`
   border: 1px solid red;
 `;
 
-const StoreListBox01 = styled.div`
-  width: 955px;
-  height: 200px;
-  border-radius: 1rem;
-  border: 1px solid #ecd0d0;
-  box-shadow: 1px 1px;
-  display: flex;
-  flex-direction: row;
-`;
-
-const StoreListImgBox01 = styled.img`
-  width: 255px;
-  height: 200px;
-  /* background-color: #666; */
-  margin-left: 33px;
-  border: 1px solid #666;
-`;
-
-const HeartIcon01 = styled.img`
-  height: 30px;
-  left: 585px;
-  object-fit: cover;
-  position: relative;
-  top: 39px;
-  width: 30px;
-  box-shadow: 1px 1px;
-`;
-
-const StoreType01 = styled.div`
-  width: 528px;
-  height: 24px;
-  display: flex;
-  font-size: 20px;
-`;
-
-const StoreNam01 = styled.div`
-  width: 394px;
-  height: 47px;
-  font-size: 40px;
-  display: flex;
-`;
-
-const StroeRatingStar01 = styled.img`
-  width: 24px;
-  height: 24px;
-`;
-
-// const StroeRating01 = styled.div`
-
-// `;
-
 const StoreLayer = () => {
   return (
     <CenterLayer>
@@ -259,16 +204,7 @@ const StoreLayer = () => {
         </StyledScreen>
 
         <StoreListScreen>
-          <StoreListBox01>
-            <StoreListImgBox01 alt="첫째줄 이미지" src={StoreListImg01} />
-            <HeartIcon01 alt="첫번째 하트 이미지" src={HeartImg01} />
-            <StoreType01></StoreType01>
-            <StoreNam01></StoreNam01>
-            <StroeRatingStar01 alt="첫번째 별표 이미지" src={RatingStar01} />
-            {/* <StroeRating01></StroeRating01>
-            <StroeUpdate01></StroeUpdate01>
-            <StoreContac01></StoreContac01> */}
-          </StoreListBox01>
+          <StoreListBoxMap />
         </StoreListScreen>
       </ListMain>
     </CenterLayer>
