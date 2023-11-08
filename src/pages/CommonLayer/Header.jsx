@@ -92,8 +92,8 @@ const HeaderUserInterface = styled.img`
 `;
 
 const DetailSearchScreenWrapper = styled.div`
-  position: absolute;
-  left: 23px;
+  position: fixed;
+  left: -23px;
   width: 100%;
   height: 312px;
   top: 80px;
