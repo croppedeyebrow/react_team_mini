@@ -7,15 +7,17 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BoardList from "./pages/page-components/Post/BoardList";
 import Post from "./pages/page-components/Post/Post";
 import Posting from "./pages/page-components/Post/Posting";
+import Home from "./pages/page-components/Randing/Home";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<BoardList />} />
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<BoardList />} />
           <Route path="/Post" element={<Post />} />
-          <Route path="/Posting" element={<Posting />} />
+          <Route path="/Posting" element={<Posting />} /> */}
         </Routes>
       </Router>
     </>
