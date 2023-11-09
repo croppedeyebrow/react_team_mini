@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import App from "./Editor";
 import { useNavigate } from "react-router-dom";
 import GlobalStyle from "../../style-components/Global_style";
-import {Posting1, Posting2, PostingContainer, Title, TitlePosting, PostingBottom, PostingBtn, PostingImg, ImgIcon, PostingVid, VidIcon, PostingLoc, LocIcon  } from "../../style-components/Post/Post-Posting";
+import {Posting1, Posting2, PostingContainer, Title, TitlePosting, PostingBottom, PostingBtn, PostingImg, ImgIcon, PostingVid, VidIcon, PostingLoc, LocIcon, AppBox  } from "../../style-components/Post/Post-Posting";
 
 const Posting = () => {
 
@@ -31,9 +31,9 @@ const Posting = () => {
         <Posting2>
           <Title>게시판 글쓰기</Title>
           <TitlePosting placeholder="제목을 입력하세요"></TitlePosting>
-          <div>
+          <AppBox>
             <App></App>
-          </div>
+          </AppBox>
           <PostingBottom>
             <PostingBtn>등록</PostingBtn>
           </PostingBottom>

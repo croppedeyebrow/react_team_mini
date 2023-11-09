@@ -84,3 +84,13 @@ export const LocIcon = styled.img`
 width: 40px;
 height: 40px;
 `;
+
+export const AppBox = styled.div`
+         height: 560px;
+        .ck.ck-editor {
+            height: 500px;
+        }
+        .ck-editor__editable {
+            height: 500px;
+        }
+    `;
