@@ -1,8 +1,23 @@
 import React from "react";
-import { StoreListBox01, StoreItem, StoreListImgBox01, HeartIcon01, StorListInfo01, StoreType01, StoreNam01, StoreRaitingBox01, StroeRatingStar01, StroeRating01, StroeUpdate01, StoreContacInfo, StoreContac01, StoreAddr01 } from "../../style-components/StoreList/StoreList-StoreListBox";
+import {
+  StoreListBox01,
+  StoreItem,
+  StoreListImgBox01,
+  HeartIcon01,
+  StorListInfo01,
+  StoreType01,
+  StoreNam01,
+  StoreRaitingBox01,
+  StroeRatingStar01,
+  StroeRating01,
+  StroeUpdate01,
+  StoreContacInfo,
+  StoreContac01,
+  StoreAddr01,
+} from "../../style-components/StoreList/StoreList-StoreListBox";
 // import StoreListImg01 from "../../images/음식 테스트 이미지.jpg";
-import HeartImg01 from "../../images/HearIcon.png";
-import RatingStar01 from "../../images/star.png";
+import HeartImg01 from "../../../images/HearIcon.png";
+import RatingStar01 from "../../../images/star.png";
 import StoreListImg01 from "../../../images/음식테스트사진01.jpeg";
 import StoreListImg02 from "../../../images/음식테스트사진02.jpeg";
 import StoreListImg03 from "../../../images/음식테스트사진03.jpeg";
@@ -11,8 +26,6 @@ import StoreListImg05 from "../../../images/음식테스트사진05.jpeg";
 import StoreListImg06 from "../../../images/음식테스트사진06.jpeg";
 import StoreListImg07 from "../../../images/음식테스트사진07.jpeg";
 import StoreListImg08 from "../../../images/음식테스트사진08.jpeg";
-
-
 
 const storesData = [
   {
