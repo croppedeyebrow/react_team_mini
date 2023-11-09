@@ -112,7 +112,7 @@ const ParkingCheck = styled.div`
 
 const ListMain = styled.div`
   width: 1000px;
-  height: 2000px;
+  height: 2600px;
   border: 4px solid #666;
   border-radius: 4px;
   display: flex;
@@ -165,7 +165,7 @@ const StoreListScreen = styled.div`
   margin-left: 1rem;
   margin-right: 1rem;
   width: 1000px;
-  height: 1400px;
+  height: 2400px;
   border: 1px solid red;
 `;
 
