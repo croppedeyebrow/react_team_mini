@@ -4,11 +4,17 @@ import { ReactDOM } from "react";
 // import Header from "./pages/Common/Header";
 // import GlobalStyle from "./style-component/Global_style";
 // import Container from "./pages/CommonLayer/CommonLayer";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import BoardList from "./pages/Post/BoardList";
-// import Post from "./pages/Post/Post";
-// import Posting from "./pages/Post/Posting";
-// import StoreLayer from "./pages/StoreList/StoreLayer";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Outlet,
+  useNavigate,
+} from "react-router-dom";
+import BoardListLayout from "./pages/page-components/Post/BoardListLayout";
+import PostLayout from "./pages/page-components/Post/PostLayout";
+import PostingLayout from "./pages/page-components/Post/PostingLayout";
 import StoreListLayout from "./pages/page-components/StoreList/StoreListLayout";
 import Home from "./pages/page-components/Randing/Home";
 
@@ -17,11 +23,12 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/" element={<StoreListLayout />} />
-          {/* <Route path="/" element={<BoardList />} />
-          <Route path="/Post" element={<Post />} />
-          <Route path="/Posting" element={<Posting />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/StoreListLayout" element={<StoreListLayout />} />
+          <Route path="/BoardListLayout" element={<BoardListLayout />} />
+          <Route path="/PostLayout" element={<PostLayout />} />
+          <Route path="/PostingLayout" element={<PostingLayout />} />
         </Routes>
       </Router>
     </>

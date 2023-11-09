@@ -2,22 +2,22 @@ import { Outlet } from "react-router-dom";
 import Header from "../../Common/Header";
 import Footer from "../../Common/Footer";
 import GlobalStyle from "../../style-components/Global_style";
-import BoardList from "./BoardList";
+import Posting from "./Posting";
 import { useNavigate } from "react-router-dom";
 
-const PostLayout = () => {
+const PostingLayout = () => {
   const Navigate = useNavigate();
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <BoardList>
+      <Posting>
         <Outlet />
-      </BoardList>
+      </Posting>
       <Footer />
     </>
   );
 };
 
-export default PostLayout;
+export default PostingLayout;
