@@ -2,12 +2,11 @@ import "./App.css";
 import React from "react";
 import { ReactDOM } from "react";
 import Header from "./pages/Common/Header";
-import GlobalStyle from "./style-component/Global_style";
-import Container from "./pages/CommonLayer/CommonLayer";
+import GlobalStyle from "./pages/style-components/Global_style";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import BoardList from "./pages/Post/BoardList";
-import Post from "./pages/Post/Post";
-import Posting from "./pages/Post/Posting";
+import BoardList from "./pages/page-components/Post/BoardList";
+import Post from "./pages/page-components/Post/Post";
+import Posting from "./pages/page-components/Post/Posting";
 
 function App() {
   return (
