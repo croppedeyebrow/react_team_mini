@@ -16,7 +16,7 @@ import {
   StoreAddr01,
 } from "../../style-components/StoreList/StoreList-StoreListBox";
 // import StoreListImg01 from "../../images/음식 테스트 이미지.jpg";
-import HeartImg01 from "../../../images/HearIcon.png";
+import HeartImg01 from "../../../images/heart.png";
 import RatingStar01 from "../../../images/star.png";
 import StoreListImg01 from "../../../images/음식테스트사진01.jpeg";
 import StoreListImg02 from "../../../images/음식테스트사진02.jpeg";

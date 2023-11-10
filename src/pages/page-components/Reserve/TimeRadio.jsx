@@ -23,7 +23,7 @@ const TimeRadio = () => {
               name="reserveTime"  
               onChange={handleChange} 
               value="6:00"
-              checked={selectedValue === "6:00"}/>
+              />
               <span>6:00</span>
             </label>   
           </StyledRadio>
@@ -36,7 +36,7 @@ const TimeRadio = () => {
               name="reserveTime"  
               onChange={handleChange}
               value="6:30"
-              checked={selectedValue === "6:30"} />
+               />
               <span>6:30</span>
             </label>
           </StyledRadio>
@@ -49,7 +49,7 @@ const TimeRadio = () => {
               name="reserveTime"  
               onChange={handleChange} 
               value="7:00"
-              checked={selectedValue === "7:00"}/>
+              />
               <span>7:00</span>
             </label>
           </StyledRadio>
@@ -62,7 +62,7 @@ const TimeRadio = () => {
               name="reserveTime" 
               onChange={handleChange} 
               value="7:30"
-              checked={selectedValue === "7:30"}/>
+              />
               <span>7:30</span>
             </label>
           </StyledRadio>
@@ -74,7 +74,7 @@ const TimeRadio = () => {
               name="reserveTime" 
               onChange={handleChange}
               value="8:00"
-              checked={selectedValue === "8:00"} />
+               />
               <span>8:00</span>
             </label>
           </StyledRadio>
@@ -86,7 +86,7 @@ const TimeRadio = () => {
               name="reserveTime" 
               onChange={handleChange} 
               value="8:30"
-              checked={selectedValue === "8:30"}/>
+              />
               <span>8:30</span>
             </label>
           </StyledRadio>
@@ -98,7 +98,7 @@ const TimeRadio = () => {
               name="reserveTime" 
               onChange={handleChange} 
               value="9:00"
-              checked={selectedValue === "9:00"}/>
+              />
               <span>9:00</span>
             </label>
           </StyledRadio>

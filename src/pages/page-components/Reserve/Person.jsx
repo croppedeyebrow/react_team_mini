@@ -7,9 +7,9 @@ import minus from "../../../images/minus.png";
 import minus_wh from "../../../images/minus_wh.png";
 
 const ReservePerson = () => {
+    // 클릭마다 아이콘 이미지 전환
     const [minusImg, setMinusImg] = useState(minus_wh);
     const [isClicked, setIsClicked] = useState(false);
-    const [addImg, setAddImg] = useState(add_wh);
 
     const handleClickMinus = () => {
         if (isClicked) {
@@ -20,15 +20,19 @@ const ReservePerson = () => {
             setIsClicked(true);
         }
     }
-    const handleClickAdd = () => {
-        if (isClicked) {
-            setAddImg(add_wh);
-            setIsClicked(false);
-        } else {
-            setAddImg(add);
-            setIsClicked(true);
-        }
-    }
+
+    // 아이콘 누르면 count +, -
+    
+    const [count, setCount] = useState(0);
+    const onIncrease = () => {
+        setCount(prevCount => prevCount +1);
+    };
+    const onDecrease = () => {
+        return count > 0 ? setCount(prevCount => prevCount - 1) : false;
+    };
+    
+
+ 
 
     return (
         <Container>
@@ -36,9 +40,9 @@ const ReservePerson = () => {
             <PersonSelect>
                 <p>방문하시는 인원을 선택하세요</p>
                 <PersonNum>
-                    <NumBtn src={minusImg} alt="minus" onClick={handleClickMinus}/>
-                    <Number>0</Number>
-                    <NumBtn src={addImg} alt="add" onClick={handleClickAdd}/>
+                    <NumBtn src={minus_wh} alt="minus" onClick={onDecrease}/>
+                    <Number>{count}</Number>
+                    <NumBtn src={add_wh} alt="add" onClick={onIncrease}/>
                 </PersonNum>
             </PersonSelect>
             <Alert>

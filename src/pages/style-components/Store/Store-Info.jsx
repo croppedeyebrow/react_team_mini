@@ -29,12 +29,13 @@ export const Bar = styled.div`
   margin: 3rem 0 ;
 `;
 export const WishList = styled.div`
-  width: 36px;
-  height: 36px;
-  /* background-image: url('../../images/heart.png'); */
-  background-size: cover;
+  cursor: pointer;
 
   position: absolute;
   top: 30px;
   right: 30px;
-`
+
+  img {
+    width: 30px;
+  }
+`;

@@ -6,6 +6,11 @@ export const ContainerBox = styled.div`
 
 export const CalendarSetting = styled.div`
 
+    button {
+    cursor: pointer;
+    color: inherit;
+    background-color: #fff;
+  }
     // 전체 틀: border, border-radius 조정
     .react-calendar {
     margin: 0 auto;
@@ -25,6 +30,10 @@ export const CalendarSetting = styled.div`
     // 주말 글씨 빨간색 없애기
     color: var(--festie-gray-800, #d94d4d);
   }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    // 전월 날짜, 다음월 날짜 연하게.
+  color: #757575;
+}
   .react-calendar__tile:enabled:hover,
   .react-calendar__tile:enabled:focus {
     //hover 했을 때 색상 변경
