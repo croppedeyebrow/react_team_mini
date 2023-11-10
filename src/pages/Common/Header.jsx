@@ -5,6 +5,7 @@ import HeadSearchIcon from "../../images/SearchIcon.png";
 import CommunicationIcon from "../../images/ChatIcon.png";
 import MypageIcon from "../../images/UserIcon.png";
 import DetailSearchScreen from "./HeaderSearchDetail";
+import HeaderWithModal from "./LoginButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -186,7 +187,9 @@ const Header = () => {
         <Link to="/BoardListLayout">
           <HeaderTalking alt="커뮤니티페이지" src={CommunicationIcon} />
         </Link>
-        <HeaderUserInterface alt="로그인,마이페이지" src={MypageIcon} />
+
+        {/* <HeaderUserInterface alt="로그인,마이페이지" src={MypageIcon} /> */}
+        <HeaderWithModal />
       </HeaderHeadIcon>
       {showDetailSearch && (
         <ModalBackground ref={modalRef} onClick={handleModalClick}>

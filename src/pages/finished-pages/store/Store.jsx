@@ -1,4 +1,4 @@
-import StoreImgBox from "../../style-components/Store/Store-ImgBox";
+import StoreImgBox from "../../page-components/Store/ImgBox";
 import StoreInfo from "../../page-components/Store/Info";
 import GlobalStyle from "../../style-components/Global_style";
 import StoreMap from "../../page-components/Store/Map";

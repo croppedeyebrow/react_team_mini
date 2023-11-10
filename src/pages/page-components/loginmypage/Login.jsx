@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import AxiosApi from "../../api/AxiosApi";
+import AxiosApi from "../../../Api/AxiosApi";
 import { Link, useNavigate } from "react-router-dom";
+
 import {
   Button,
   Container,
   Input,
   Items,
-} from "../../component/loginmypage/LoginComponent";
-import matpsSymbol from "../../images/matpsSymbol.png";
-import Modal from "../../util/Modal";
+} from "../../style-components/loginmypage/LoginComponent";
+import matpsSymbol from "../../../images/matpsSymbol.png";
+// import Modal from "../../util/Modal";
 
 const Login2 = (page) => {
   const navigate = useNavigate(); // 화면 이동용 hook
@@ -128,10 +129,10 @@ const Login2 = (page) => {
             <Button disabled>로그인</Button> // 아이디 또는 패스워드가 유효하지 않으면 버튼 비활성화
           )}
         </Items>
-        <Modal open={modalOpen} close={closeModal} header="오류">
+        {/* <Modal open={modalOpen} close={closeModal} header="오류">
           아이디 및 패스워드를 재확인해 주세요.{" "}
           {/* 로그인 실패 시 모달 팝업 내용 */}
-        </Modal>
+        {/* </Modal> */}
         <Items className="btm">
           <Link to="/FindId" className="link_style">
             <span>아이디 찾기</span>
