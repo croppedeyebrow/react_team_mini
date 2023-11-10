@@ -28,7 +28,6 @@ export const StoreListImgBox01 = styled.img`
   border: 1px solid #666;
   display: flex;
   flex-direction: row;
-  object-fit: cover;
 `;
 
 export const HeartIcon01 = styled.img`
@@ -44,6 +43,7 @@ export const StorListInfo01 = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  color: #222;
   height: 200px;
   width: 340px;
   gap: 1rem;

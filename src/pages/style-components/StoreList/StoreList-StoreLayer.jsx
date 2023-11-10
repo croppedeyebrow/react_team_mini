@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const CenterLayer = styled.div`
   display: flex;
+  flex-direction: row;
   padding-top: 1rem;
   width: 1280px;
-  height: 100%;
+  height: 2200px;
 `;
 
 export const FilterContainer = styled.div`
@@ -109,13 +110,14 @@ export const ParkingCheck = styled.div`
 `;
 
 export const ListMain = styled.div`
-  width: 1000px;
-  height: 2600px;
+  width: 960px;
+  height: 2030px;
   border: 4px solid #666;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 1rem;
 `;
 
 export const StoreMainMap = styled.div`
@@ -126,7 +128,7 @@ export const StoreMainMap = styled.div`
   border-radius: 14px;
   box-shadow: 2px 2px;
   align-self: center;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 `;
 
 export const CenterWord = styled.div`
@@ -155,14 +157,14 @@ export const StyledScreen = styled.div`
 
 export const StoreListScreen = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  width: 1000px;
-  height: 2400px;
+  width: 960px;
+  height: 2000px;
   border: 1px solid red;
 `;
