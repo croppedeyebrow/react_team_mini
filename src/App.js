@@ -17,6 +17,7 @@ import PostLayout from "./pages/page-components/Post/PostLayout";
 import PostingLayout from "./pages/page-components/Post/PostingLayout";
 import StoreListLayout from "./pages/page-components/StoreList/StoreListLayout";
 import Home from "./pages/page-components/Randing/Home";
+import StoreLayout from "./pages/finished-pages/store/StoreLayout";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/StoreListLayout" element={<StoreListLayout />} />
+          <Route path="/StoreLayout" element={<StoreLayout />} />
           <Route path="/BoardListLayout" element={<BoardListLayout />} />
           <Route path="/PostLayout" element={<PostLayout />} />
           <Route path="/PostingLayout" element={<PostingLayout />} />
