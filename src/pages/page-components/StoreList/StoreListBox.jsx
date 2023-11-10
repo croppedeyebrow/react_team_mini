@@ -91,26 +91,26 @@ const storesData = [
     address: "서울 강남구 테헤란로 123",
     image: StoreListImg06,
   },
-  {
-    id: 7,
-    type: "음식 종류 7",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg07,
-  },
-  {
-    id: 8,
-    type: "음식 종류 8",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg08,
-  },
+  // {
+  //   id: 7,
+  //   type: "음식 종류 7",
+  //   name: "식당이름",
+  //   rating: "5.0",
+  //   updateDate: "2023-10-26",
+  //   contact: "Tel : 02 1234 5678",
+  //   address: "서울 강남구 테헤란로 123",
+  //   image: StoreListImg07,
+  // },
+  // {
+  //   id: 8,
+  //   type: "음식 종류 8",
+  //   name: "식당이름",
+  //   rating: "5.0",
+  //   updateDate: "2023-10-26",
+  //   contact: "Tel : 02 1234 5678",
+  //   address: "서울 강남구 테헤란로 123",
+  //   image: StoreListImg08,
+  // },
 ];
 
 const StoreListBoxMap = () => {
@@ -119,7 +119,11 @@ const StoreListBoxMap = () => {
       {storesData.map((store, index) => (
         <Link to="/StoreLayout" key={store.id}>
           <StoreItem>
-            <StoreListImgBox01 alt={`이미지 ${index + 1}`} src={store.image} />
+            <StoreListImgBox01
+              alt={`이미지 ${index + 1}`}
+              src={store.image}
+              sizes="100%"
+            />
             <HeartIcon01 alt="하트 이미지" src={HeartImg01} />
 
             <StorListInfo01>

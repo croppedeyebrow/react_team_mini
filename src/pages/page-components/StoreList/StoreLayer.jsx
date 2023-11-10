@@ -1,6 +1,25 @@
 import React from "react";
 import StoreListBoxMap from "./StoreListBox";
-import { CenterLayer, FilterContainer, FilterBox01, PeopleNum, FilterBox02, FoodCheck, FilterBox03, RegionCheck, FilterBox04, PriceCheck, FilterBox05, ParkingCheck, ListMain, StoreMainMap, CenterWord, StyledScreen, StoreListScreen } from "../../style-components/StoreList/StoreList-StoreLayer";
+import {
+  CenterLayer,
+  FilterContainer,
+  FilterBox01,
+  PeopleNum,
+  FilterBox02,
+  FoodCheck,
+  FilterBox03,
+  RegionCheck,
+  FilterBox04,
+  PriceCheck,
+  FilterBox05,
+  ParkingCheck,
+  ListMain,
+  StoreMainMap,
+  CenterWord,
+  StyledScreen,
+  StoreListScreen,
+} from "../../style-components/StoreList/StoreList-StoreLayer";
+import StoreListMap from "../StoreList/ListPageMap";
 
 const StoreLayer = () => {
   return (
@@ -28,7 +47,9 @@ const StoreLayer = () => {
       </FilterContainer>
 
       <ListMain>
-        <StoreMainMap>여기는 카카오 api 지도 넣을 자리입니다~~</StoreMainMap>
+        {/* <StoreMainMap> */}
+        <StoreListMap />
+        {/* </StoreMainMap> */}
 
         <StyledScreen>
           <CenterWord>
