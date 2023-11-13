@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import AxiosApi from "../../../Api/AxiosApi";
 import { Link, useNavigate } from "react-router-dom";
-
 import {
   Button,
   Container,
@@ -9,9 +8,9 @@ import {
   Items,
 } from "../../style-components/loginmypage/LoginComponent";
 import matpsSymbol from "../../../images/matpsSymbol.png";
-// import Modal from "../../util/Modal";
+import Modal from "../../../util/Modal";
 
-const Login2 = (page) => {
+const Login = (page) => {
   const navigate = useNavigate(); // 화면 이동용 hook
 
   // ID / PW 입력, setInputId(Pw) 를 통해 inputId(Pw) 업데이트, 기본값은 ""
@@ -52,6 +51,7 @@ const Login2 = (page) => {
       /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E]).{8,40}$/; // 영문, 숫자, 특수문자가 각각 하나 이상은 포함되었는 8 ~ 40자인지 검사
     setInputPw(e.target.value);
     if (!regexPw.test(e.target.value)) {
+      //
       setErrorPw(
         "숫자+영문+특수문자 조합으로 8자리 이상 40자리 미만으로 입력해 주세요."
       );
@@ -69,6 +69,12 @@ const Login2 = (page) => {
 
     if (res.data === true) {
       // 로그인 성공한 경우
+
+      const res2 = await AxiosApi.memberGet(inputId); // 로그인한 유저의 정보를 서버에서 가져옴
+      console.log("res2 : ");
+      console.log(res2.data);
+
+      window.localStorage.setItem("userInfo", JSON.stringify(res2.data[0])); // 브라우저 로컬 스토리지에 유저 정보 저장
       window.localStorage.setItem("userId", inputId); // 브라우저 로컬 스토리지에 아이디 저장
       window.localStorage.setItem("userPw", inputPw); // 브라우저 로컬 스토리지에 패스워드 저장
       window.localStorage.setItem("isLogin", "TRUE"); // 로그인 상태 저장
@@ -80,7 +86,7 @@ const Login2 = (page) => {
       } else if (page === "reserve") {
         navigate("/reserve"); // 예약 버튼으로 로그인 후 성공한 경우 예약으로 이동
       } else {
-        navigate("/Layout");
+        navigate("/myPage");
       }
     } else {
       setModalOpen(true); // 로그인 실패 시 모달 팝업 열기
@@ -129,10 +135,10 @@ const Login2 = (page) => {
             <Button disabled>로그인</Button> // 아이디 또는 패스워드가 유효하지 않으면 버튼 비활성화
           )}
         </Items>
-        {/* <Modal open={modalOpen} close={closeModal} header="오류">
+        <Modal open={modalOpen} close={closeModal} header="오류">
           아이디 및 패스워드를 재확인해 주세요.{" "}
           {/* 로그인 실패 시 모달 팝업 내용 */}
-        {/* </Modal> */}
+        </Modal>
         <Items className="btm">
           <Link to="/FindId" className="link_style">
             <span>아이디 찾기</span>
@@ -151,4 +157,4 @@ const Login2 = (page) => {
   );
 };
 
-export default Login2;
+export default Login;

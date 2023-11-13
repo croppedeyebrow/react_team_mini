@@ -63,12 +63,11 @@ export const Button = styled.button`
   font-weight: 600;
   border: 0px;
 
-  // 활성화 상태 스타일
-  background-color: ${(props) => (props.enabled ? "#d94d4d" : "darkgray")};
+   // 활성화 상태 스타일
+   background-color: ${props => (props.enabled ? "#d94d4d" : "darkgray")};
 
-  // 로그인 버튼 클릭 시 시각효과
-  &:active {
-    background-color: ${(props) => (props.enabled ? "darkred" : "gray")};
-    transform: translateY(2px);
-  }
+   // 로그인 버튼 클릭 시 시각효과
+   &:active {
+    background-color: ${props => (props.enabled ? "darkred" : "gray")};
+    transform: translateY(2px);}
 `;

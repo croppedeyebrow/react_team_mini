@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 
+
 export const Container = styled.div`
   display: flex;
   width: 80rem; /* 변경: 1280px / 16px = 80rem */
@@ -25,7 +26,15 @@ export const Items = styled.div`
     width: 13.25rem; /* 변경: 212px / 16px = 13.25rem */
     height: 13.25rem; /* 변경: 212px / 16px = 13.25rem */
     border-radius: 6.6875rem; /* 변경: 107px / 16px = 6.6875rem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
+  &.rounded {
+  border-radius: 50%;
+  overflow: hidden;
+}
   &.nick {
     font-size: 2rem; /* 변경: 32px / 16px = 2rem */
     font-weight: 800;
@@ -51,7 +60,7 @@ export const Items = styled.div`
     border-radius: 1.25rem; /* 변경: 20px / 16px = 1.25rem */
     background-color: white;
     div {
-      margin-top: 1.5625rem; /* 변경: 25px / 16px = 1.5625rem */
+        margin-top: 1.5625rem; /* 변경: 25px / 16px = 1.5625rem */
       font-size: 0.9375rem;
 
       p {
@@ -68,8 +77,8 @@ export const Items = styled.div`
     width: 35.5625rem; /* 변경: 569px / 16px = 35.5625rem */
     height: 10rem; /* 변경: 160px / 16px = 10rem */
     p {
-      width: 35.5625rem; /* 변경: 569px / 16px = 35.5625rem */
-      height: 1.25rem; /* 변경: 20px / 16px = 1.25rem */
+        width: 35.5625rem; /* 변경: 569px / 16px = 35.5625rem */
+        height: 1.25rem; /* 변경: 20px / 16px = 1.25rem */
       font-size: 1.25rem;
       opacity: 0.45;
       font-weight: 600;
@@ -91,8 +100,8 @@ export const Items = styled.div`
       font-weight: 600;
       font-size: 1.25rem; /* 변경: 20px / 16px = 1.25rem */
 
-      &.setting {
-        opacity: 0.3;
+      &.setting{
+        opacity: .3;
         width: 2.25rem;
         height: 2.25rem;
       }
