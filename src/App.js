@@ -17,7 +17,16 @@ import PostLayout from "./pages/page-components/Post/PostLayout";
 import PostingLayout from "./pages/page-components/Post/PostingLayout";
 import StoreListLayout from "./pages/page-components/StoreList/StoreListLayout";
 import Home from "./pages/page-components/Randing/Home";
-import StoreLayout from "./pages/finished-pages/store/StoreLayout";
+import StoreLayout from "./pages/finished-pages/store/StoreLayout";\
+import Signup from "./pages/page-components/Signup/Signup";
+import Layout from "./pages/page-components/Login/Layout";
+import FindId from "./pages/page-components/FindId/FindId";
+import FindPw from "./pages/page-components/FindPw/FindPw";
+import MyPage from "./pages/page-components/MyPage/MyPage";
+import PrivacyPolicy from "./pages/page-components/PrivacyPolicy/PrivacyPolicy";
+import TermsOfUse from "./pages/page-components/TermsOfUse/TermsOfUse";
+import Update from "./pages/page-components/Update/Update";
+
 
 function App() {
   return (
@@ -31,6 +40,14 @@ function App() {
           <Route path="/BoardListLayout" element={<BoardListLayout />} />
           <Route path="/PostLayout" element={<PostLayout />} />
           <Route path="/PostingLayout" element={<PostingLayout />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Layout" element={<Layout />} />
+          <Route path="/FindId" element={<FindId />} />
+          <Route path="/FindPw" element={<FindPw />} />
+          <Route path="/MyPage" element={<MyPage />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/TermsOfUse" element={<TermsOfUse />} />
+          <Route path="/Update" element={<Update />} />
         </Routes>
       </Router>
     </>
