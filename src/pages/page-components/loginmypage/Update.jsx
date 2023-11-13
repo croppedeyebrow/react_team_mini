@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; // React Router의 useNavigate 훅을 불러옴
-import Modal from "../../../util/Modal"; // Modal 컴포넌트를 불러옴
+import Modal from "../../../utils/modal"; // Modal 컴포넌트를 불러옴
 import AxiosApi from "../../../Api/AxiosApi"; // Axios를 통해 서버로 HTTP 요청을 보내는 API를 불러옴
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   RadioContainer,
   RadioInput,
   RadioLabel,
-} from "../../style-components/signup/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
+} from "../../style-components/SignupComponent.jsx/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
 import { useEffect, useState } from "react"; // React의 useState 훅을 불러옴
 import matpslogo from "../../../images/matps로고.png"; // matps로고 이미지 파일을 불러옴
 import styled from "styled-components";
@@ -26,7 +26,6 @@ const Update = () => {
   const [inputId, setInputId] = useState(""); // 아이디 입력값을 담는 상태와 그 상태를 업데이트하는 함수
   const [inputNick, setInputNick] = useState(userInfo.my_nickname); // 닉네임 입력값을 담는 상태와 그 상태를 업데이트하는 함수
   const [inputImg, setInputImg] = useState(userInfo.my_profile_img); // 프로필이미지 입력값을 담는 상태와 그 상태를 업데이트하는 함수
-
 
   // 오류 메시지
   const [nickMessage, setNickMessage] = useState(""); // 닉네임 관련 오류 메시지를 표시하는 상태
@@ -75,12 +74,12 @@ const Update = () => {
     const memberUpd = await AxiosApi.memberUpd(
       // 회원정보를 서버로 보내는 AxiosApi
       userInfo.my_id,
-      inputNick // 닉네임 정보 추가
-      , inputImg
+      inputNick, // 닉네임 정보 추가
+      inputImg
     );
     console.log(memberUpd.data); // 회원가입 결과 출력
     // 회원가입 수행
-    if (memberUpd.data === true) { 
+    if (memberUpd.data === true) {
       const res2 = await AxiosApi.memberGet(userInfo.my_id); // 회원정보 가져오기
 
       window.localStorage.setItem("userInfo", JSON.stringify(res2.data[0])); // 브라우저 로컬 스토리지에 유저 정보 저장

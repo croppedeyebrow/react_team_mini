@@ -4,7 +4,7 @@ import {
   Input,
   Label,
   Button,
-} from "../../component/signup/FindIdComponent";
+} from "../../style-components/SignupComponent.jsx/FindIdComponent";
 import { useState } from "react";
 
 const FindId = () => {

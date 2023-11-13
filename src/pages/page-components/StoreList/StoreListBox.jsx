@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StoreListBox01,
   StoreItem,
-  StoreListImgBox01,
   HeartIcon01,
   StorListInfo01,
   StoreType01,
@@ -18,117 +17,96 @@ import {
 // import StoreListImg01 from "../../images/음식 테스트 이미지.jpg";
 import HeartImg01 from "../../../images/heart.png";
 import RatingStar01 from "../../../images/star.png";
-import StoreListImg01 from "../../../images/음식테스트사진01.jpeg";
-import StoreListImg02 from "../../../images/음식테스트사진02.jpeg";
-import StoreListImg03 from "../../../images/음식테스트사진03.jpeg";
-import StoreListImg04 from "../../../images/음식테스트사진04.jpeg";
-import StoreListImg05 from "../../../images/음식테스트사진05.jpeg";
-import StoreListImg06 from "../../../images/음식테스트사진06.jpeg";
-import StoreListImg07 from "../../../images/음식테스트사진07.jpeg";
-import StoreListImg08 from "../../../images/음식테스트사진08.jpeg";
-
+import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import AxiosApi from "../../../Api/AxiosApi";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const storesData = [
-  {
-    id: 1,
-    type: "음식 종류 1",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg01,
-  },
-  {
-    id: 2,
-    type: "음식 종류 2",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg02,
-  },
-  {
-    id: 3,
-    type: "음식 종류 3",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg03,
-  },
-  {
-    id: 4,
-    type: "음식 종류 4",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg04,
-  },
-  {
-    id: 5,
-    type: "음식 종류 5",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg05,
-  },
-  {
-    id: 6,
-    type: "음식 종류 6",
-    name: "식당이름",
-    rating: "5.0",
-    updateDate: "2023-10-26",
-    contact: "Tel : 02 1234 5678",
-    address: "서울 강남구 테헤란로 123",
-    image: StoreListImg06,
-  },
-  // {
-  //   id: 7,
-  //   type: "음식 종류 7",
-  //   name: "식당이름",
-  //   rating: "5.0",
-  //   updateDate: "2023-10-26",
-  //   contact: "Tel : 02 1234 5678",
-  //   address: "서울 강남구 테헤란로 123",
-  //   image: StoreListImg07,
-  // },
-  // {
-  //   id: 8,
-  //   type: "음식 종류 8",
-  //   name: "식당이름",
-  //   rating: "5.0",
-  //   updateDate: "2023-10-26",
-  //   contact: "Tel : 02 1234 5678",
-  //   address: "서울 강남구 테헤란로 123",
-  //   image: StoreListImg08,
-  // },
-];
+const Carouselbox = styled.div`
+  width: 255px;
+  height: 200px;
+  background-color: #666;
+  margin-left: 33px;
+  border: 1px solid #666;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  object-fit: center;
+`;
 
 const StoreListBoxMap = () => {
+  const [storesData, setStoresData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStoreData = async () => {
+      try {
+        const response = await AxiosApi.StroeListGet("storeIds");
+        console.log(response);
+        if (response.status === 200) {
+          const processedData = response.data.map((store) => ({
+            STORE_ID: store.storeId,
+            STORE_IMG_01: store.storeImg01,
+            STORE_IMG_02: store.storeImg02,
+            STORE_IMG_03: store.storeImg03,
+            STORE_IMG_04: store.storeImg04,
+            STORE_IMG_05: store.storeImg05,
+            STORE_TYPE: store.storeType,
+            STORE_NAME: store.storeName,
+            STORE_TEL: store.storeTel,
+            STORE_ADDR: store.stroeAddr,
+          }));
+
+          setStoresData(processedData);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error("식당 데이터를 불러오지 못함 : ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchStoreData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <StoreListBox01>
-      {storesData.map((store, index) => (
-        <Link to="/StoreLayout" key={store.id}>
+      {storesData.map((store) => (
+        <Link to={`/StoreLayout/`} key={store.STORE_ID}>
+          {/* <Link to={`/StoreLayout/${store.STORE_ID}`} key={store.STORE_ID}></Link> */}
           <StoreItem>
-            <StoreListImgBox01
-              alt={`이미지 ${index + 1}`}
-              src={store.image}
-              sizes="100%"
-            />
+            <Carouselbox>
+              <Carousel
+                showArrows={false}
+                autoPlay={true}
+                infiniteLoop={true}
+                showThumbs={false}
+                selectedItem={0} // 필요한 대로 기본 선택된 항목을 설정
+                className="w-[400px] lg:hidden"
+              >
+                {[
+                  store.STORE_IMG_01,
+                  store.STORE_IMG_02,
+                  store.STORE_IMG_03,
+                  store.STORE_IMG_04,
+                  store.STORE_IMG_05,
+                ].map((imgUrl, index) => (
+                  <div key={index}>
+                    <img alt={`이미지 ${index + 1}`} src={imgUrl} />
+                  </div>
+                ))}
+              </Carousel>
+            </Carouselbox>
             <HeartIcon01 alt="하트 이미지" src={HeartImg01} />
-
             <StorListInfo01>
-              <StoreType01>{store.type}</StoreType01>
-              <StoreNam01>{store.name}</StoreNam01>
+              <StoreType01>{store.STORE_TYPE}</StoreType01>
+              <StoreNam01>{store.STORE_NAME}</StoreNam01>
 
               <StoreRaitingBox01>
                 <StroeRatingStar01 alt="별표 이미지" src={RatingStar01} />
@@ -137,10 +115,9 @@ const StoreListBoxMap = () => {
 
               <StroeUpdate01>{store.updateDate}</StroeUpdate01>
             </StorListInfo01>
-
             <StoreContacInfo>
-              <StoreContac01>{store.contact}</StoreContac01>
-              <StoreAddr01>{store.address}</StoreAddr01>
+              <StoreContac01>{store.STORE_TEL}</StoreContac01>
+              <StoreAddr01>{store.STORE_ADDR}</StoreAddr01>
             </StoreContacInfo>
           </StoreItem>
         </Link>

@@ -24,7 +24,7 @@ import StoreListMap from "../StoreList/ListPageMap";
 const StoreLayer = () => {
   return (
     <CenterLayer>
-      <FilterContainer>
+      {/* <FilterContainer>
         <FilterBox01>
           <PeopleNum>인원수</PeopleNum>
         </FilterBox01>
@@ -44,7 +44,7 @@ const StoreLayer = () => {
         <FilterBox05>
           <ParkingCheck>주차</ParkingCheck>
         </FilterBox05>
-      </FilterContainer>
+      </FilterContainer> */}
 
       <ListMain>
         {/* <StoreMainMap> */}
@@ -53,7 +53,8 @@ const StoreLayer = () => {
 
         <StyledScreen>
           <CenterWord>
-            당신이 고대하던 소중한 ____자리를 위한 식당을 찾고 있습니다.
+            당신이 기대하던, 소중한 시간을 위한 식당을 Matps가 함께 찾고
+            있습니다.
           </CenterWord>
         </StyledScreen>
 

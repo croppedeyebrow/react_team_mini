@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; // React Router의 useNavigate 훅을 불러옴
-import Modal from "../../../util/Modal"; // Modal 컴포넌트를 불러옴
+import Modal from "../../../utils/modal"; // Modal 컴포넌트를 불러옴
 import AxiosApi from "../../../Api/AxiosApi"; // Axios를 통해 서버로 HTTP 요청을 보내는 API를 불러옴
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   RadioContainer,
   RadioInput,
   RadioLabel,
-} from "../../style-components/signup/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
+} from "../../style-components/SignupComponent.jsx/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
 import { useEffect, useState } from "react"; // React의 useState 훅을 불러옴
 import matpslogo from "../../../images/matps로고.png"; // matps로고 이미지 파일을 불러옴
 import styled from "styled-components";

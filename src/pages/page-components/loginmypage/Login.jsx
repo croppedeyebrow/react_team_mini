@@ -8,7 +8,7 @@ import {
   Items,
 } from "../../style-components/loginmypage/LoginComponent";
 import matpsSymbol from "../../../images/matpsSymbol.png";
-import Modal from "../../../util/Modal";
+import Modal from "../../../utils/modal";
 
 const Login = (page) => {
   const navigate = useNavigate(); // 화면 이동용 hook
