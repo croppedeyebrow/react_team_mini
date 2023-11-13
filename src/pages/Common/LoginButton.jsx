@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Login2 from "../page-components/loginmypage/Login";
 import styled from "styled-components";
 import MypageIcon from "../../images/UserIcon.png";
+import { useNavigate } from "react-router-dom";
+import ProfileImg from "../../images/profileImg.png";
 
 const HeaderUserInterface = styled.img`
   height: 50px;
@@ -37,23 +39,41 @@ const LoginModalContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+
+
 const HeaderWithModal = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const navigate = useNavigate();
+  let isLogin = localStorage.getItem('isLogin') === 'TRUE';
+  let userInfo;
+  try{
+    userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  } catch (error) {
+    userInfo = {};
+  }
+
   const openModal = () => {
-    setModalOpen(true);
-  };
+
+  if (isLogin) {
+    navigate('/mypage'); // 로그인 상태이면 마이페이지로 이동
+  } else {
+    setModalOpen(true); // 로그인 상태가 아니면 로그인 모달을 열기
+  }
+};
 
   const closeModal = () => {
     setModalOpen(false);
   };
 
+  
+
   return (
     <>
       <HeaderUserInterface
         alt="로그인,마이페이지"
-        src={MypageIcon}
-        onClick={openModal}
+        src={isLogin ? (userInfo.my_profile_img ? userInfo.my_profile_img : ProfileImg) : MypageIcon}
+  onClick={openModal}
       />
       {isModalOpen && (
         <ModalBackground onClick={closeModal}>

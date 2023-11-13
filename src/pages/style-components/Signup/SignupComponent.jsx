@@ -40,6 +40,25 @@ export const Items = styled.div`
       margin-top: 2.5rem; /* 변경: 40px / 16px = 2.5rem */
       width: 37.5rem; /* 변경: 600px / 16px = 37.5rem */
     }
+    .inputimg {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2.5rem; /* 변경: 40px / 16px = 2.5rem */
+      width: 37.5rem; /* 변경: 600px / 16px = 37.5rem */
+      button {
+        background-color: #ff7070;
+        width: 8rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        border: 0rem;
+        
+
+      };
+
+    }
   }
   &.agree {
     margin-left: 1rem;
@@ -58,6 +77,9 @@ export const Items = styled.div`
         font-weight: 600;
         padding: 0.4rem;
         border: 0px;
+        &:active {
+    background-color: #a94a4a;// 클릭 시 
+    transform: translateY(2px);}
       }
 
      span {
@@ -67,7 +89,16 @@ export const Items = styled.div`
         font-weight: 400;
         font-size: 1.3rem;
         color: royalblue;
-      }
+           }
+           #allagreed {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+          font-weight: 600;
+          color: royalblue;
+        
+        }
+ 
     }
 `;
 export const Input = styled.input`
@@ -102,6 +133,9 @@ margin-top: 3rem;
   background-color: ${({ enabled }) => (enabled ? "#d94d4d" : "grey")};
   color: white;
   cursor: ${({ enabled }) => (enabled ? "pointer" : "not-allowed")};
+  &:active {
+    background-color: #a94a4a;// 클릭 시 
+    transform: translateY(2px);}
 `;
 
 export const RadioContainer = styled.div`

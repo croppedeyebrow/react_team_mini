@@ -33,7 +33,7 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + "/users/sign", sign); // 회원 가입 API에 POST 요청
   },
-
+  
   // 회원 정보 수정
   memberUpd: async (id, nick, profile_img) => {
     // 회원 가입을 위한 함수
@@ -41,7 +41,7 @@ const AxiosApi = {
       // 회원 정보를 담은 객체를 생성 .
       id: id, // 사용자 아이디를 설정
       nick: nick, // 사용자 닉네임을 설정
-      profile_img: profile_img, // 사용자 프로필 이미지를 설정
+      profile_img: profile_img // 사용자 프로필 이미지를 설정
     };
     return await axios.post(KH_DOMAIN + "/users/update", update); // 회원 가입 API에 POST 요청
   },
@@ -51,7 +51,7 @@ const AxiosApi = {
     // 회원 가입 여부를 확인하기 위한 함수
     return await axios.get(KH_DOMAIN + `/users/checkId?id=${id}`); // 아이디 중복여부 확인 API 에 POST 요청
   },
-  // 닉네임 중복여부 확인
+// 닉네임 중복여부 확인
   memberRegCheckNick: async (nick) => {
     // 회원 가입 여부를 확인하기 위한 함수
     return await axios.get(KH_DOMAIN + `/users/checkNick?nick=${nick}`); // 회원 가입 여부 확인 API에 POST 요청
@@ -64,12 +64,6 @@ const AxiosApi = {
       id: id, // 사용자 아이디를 설정
     };
     return await axios.post(KH_DOMAIN + "/users/del", del); // 회원 탈퇴 API에 POST 요청
-  },
-
-  StroeListGet: async (STORE_ID) => {
-    return await axios.get(
-      KH_DOMAIN + `/stores/StoreInfo/?storeIds=${STORE_ID}`
-    );
   },
 };
 

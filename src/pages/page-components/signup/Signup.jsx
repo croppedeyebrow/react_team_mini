@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; // React Router의 useNavigate 훅을 불러옴
-import Modal from "../../../utils/modal"; // Modal 컴포넌트를 불러옴
+import Modal from "../../../util/Modal"; // Modal 컴포넌트를 불러옴
 import AxiosApi from "../../../Api/AxiosApi"; // Axios를 통해 서버로 HTTP 요청을 보내는 API를 불러옴
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   RadioContainer,
   RadioInput,
   RadioLabel,
-} from "../../style-components/SignupComponent.jsx/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
+} from "../../style-components/signup/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
 import { useEffect, useState } from "react"; // React의 useState 훅을 불러옴
 import matpslogo from "../../../images/matps로고.png"; // matps로고 이미지 파일을 불러옴
 import styled from "styled-components";
@@ -47,9 +47,25 @@ const Signup = () => {
   const [inputGender, setGender] = useState(false); // 성별 유효성 검사
   const [termsAgreed, setTermsAgreed] = useState(false); // 이용약관 동의상태
   const [privacyAgreed, setPrivacyAgreed] = useState(false); // 개인정보처리방침 동의상태
+  
+  const [allAgreed, setAllAgreed] = useState(false); // 약관 모두동의 상태
+
+  useEffect(() => {
+    setAllAgreed(termsAgreed && privacyAgreed);
+  }, [termsAgreed, privacyAgreed]);
+
+  const handleAllAgreedChange = () => {
+    const newAllAgreed = !allAgreed;
+    setAllAgreed(newAllAgreed);
+    setTermsAgreed(newAllAgreed);
+    setPrivacyAgreed(newAllAgreed);
+  };
+
   // 팝업
   const [modalOpen, setModalOpen] = useState(false); // 팝업 모달의 열림/닫힘 상태를 나타내는 상태
   const [modalText, setModelText] = useState("중복된 아이디 입니다."); // 팝업 모달에 표시될 텍스트
+
+
 
   const closeModal = () => {
     setModalOpen(false); // 팝업 모달을 닫는 함수
@@ -304,6 +320,14 @@ const Signup = () => {
         </Items>
       </Items>
       <Items className="agree">
+        <span id="allagreed">모두 동의</span>
+        <Input
+          className="agree"
+          type="checkbox"
+          id="allAgreeCheckbox"
+          checked={allAgreed}
+          onChange={handleAllAgreedChange}
+        />
         <span>이용약관 동의</span>
         <Input
           className="agree"

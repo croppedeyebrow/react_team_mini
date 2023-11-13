@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; // React Router의 useNavigate 훅을 불러옴
-import Modal from "../../../utils/modal"; // Modal 컴포넌트를 불러옴
+import Modal from "../../../util/Modal"; // Modal 컴포넌트를 불러옴
 import AxiosApi from "../../../Api/AxiosApi"; // Axios를 통해 서버로 HTTP 요청을 보내는 API를 불러옴
 import {
   Container,
@@ -10,10 +10,12 @@ import {
   RadioContainer,
   RadioInput,
   RadioLabel,
-} from "../../style-components/SignupComponent.jsx/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
+} from "../../style-components/signup/SignupComponent"; // SignupComponent2 컴포넌트에서 필요한 요소들을 불러옴
 import { useEffect, useState } from "react"; // React의 useState 훅을 불러옴
 import matpslogo from "../../../images/matps로고.png"; // matps로고 이미지 파일을 불러옴
 import styled from "styled-components";
+import { storage } from "../../../Api/firebase";
+
 const setIdMessage = styled.div`
   color: red;
 `;
@@ -25,13 +27,15 @@ const Update = () => {
   // 키보드 입력
   const [inputId, setInputId] = useState(""); // 아이디 입력값을 담는 상태와 그 상태를 업데이트하는 함수
   const [inputNick, setInputNick] = useState(userInfo.my_nickname); // 닉네임 입력값을 담는 상태와 그 상태를 업데이트하는 함수
-  const [inputImg, setInputImg] = useState(userInfo.my_profile_img); // 프로필이미지 입력값을 담는 상태와 그 상태를 업데이트하는 함수
+
+  const [file, setFile] = useState(''); // 프로필이미지 입력값을 담는 상태와 그 상태를 업데이트하는 함수
+  const [url, setUrl] = useState(userInfo.my_profile_img);
 
   // 오류 메시지
   const [nickMessage, setNickMessage] = useState(""); // 닉네임 관련 오류 메시지를 표시하는 상태
 
   // 유효성 검사
-  const [isNick, setIsNick] = useState(false); // 닉네임 유효성 검사 상태
+  const [isNick, setIsNick] = useState(true); // 닉네임 유효성 검사 상태
 
   // 팝업
   const [modalOpen, setModalOpen] = useState(false); // 팝업 모달의 열림/닫힘 상태를 나타내는 상태
@@ -41,8 +45,25 @@ const Update = () => {
     setModalOpen(false); // 팝업 모달을 닫는 함수
   };
 
+  const handleFileInputChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleUploadClick = () => {
+    const storageRef = storage.ref();
+    const fileRef = storageRef.child(file.name);
+    fileRef.put(file).then(() => {
+      console.log('File uploaded successfully!');
+      fileRef.getDownloadURL().then((url) => {
+        console.log("저장경로 확인 : " + url);
+        setUrl(url);
+      });
+    });
+  };
+
   // 닉네임 입력 필드에서 포커스가 벗어났을 때 중복 확인
   const checkDuplicateNick = async () => {
+    
     if (inputNick.length > 0) {
       const resultNick = await AxiosApi.memberRegCheckNick(inputNick);
       console.log(resultNick.data);
@@ -64,9 +85,11 @@ const Update = () => {
   };
 
   const onChangeImg = (e) => {
-    setInputImg(e.target.value); // 프로필이미지 입력값 업데이트
+    setFile(e.target.value); // 프로필이미지 입력값 업데이트
   };
 
+
+  
   const onClickUpdate = async () => {
     // 내정보수정 버튼 클릭 시 수행되는 함수
     console.log("Click 회원정보수정"); // 정보수정 버튼이 클릭되었음을 콘솔에 "Click 회원가입" 메시지로 출력
@@ -75,10 +98,10 @@ const Update = () => {
       // 회원정보를 서버로 보내는 AxiosApi
       userInfo.my_id,
       inputNick, // 닉네임 정보 추가
-      inputImg
+      url
     );
-    console.log(memberUpd.data); // 회원가입 결과 출력
-    // 회원가입 수행
+    console.log(memberUpd.data); // 회원정보수정 결과 출력
+    // 정보수정 수행
     if (memberUpd.data === true) {
       const res2 = await AxiosApi.memberGet(userInfo.my_id); // 회원정보 가져오기
 
@@ -106,15 +129,19 @@ const Update = () => {
         }}
       >
         <img
-          src={inputImg}
+          src={url}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         ></img>
       </Items>
       <Items className="item2">
-        <Items className="inputline">
+        <Items className="inputimg">
           <Label>프로필 이미지</Label>
-          {/* 이미지 입력필드 */}
-          <Input value={inputImg} onChange={onChangeImg} />
+          <input type="file" onChange={handleFileInputChange} />
+      <button onClick={handleUploadClick}>사진 적용</button>
+        </Items>
+        <Items className="deleteimg">
+          <Label>프로필 이미지</Label>
+      <button onClick={handleUploadClick}>사진 삭제</button>
         </Items>
         <Items className="inputline">
           <Label>아이디</Label>

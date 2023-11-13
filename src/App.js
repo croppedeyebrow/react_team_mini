@@ -25,6 +25,7 @@ import MyPage from "./pages/page-components/loginmypage/MyPage";
 import PrivacyPolicy from "./pages/page-components/signup/PrivacyPolicy";
 import TermsOfUse from "./pages/page-components/signup/TermsOfUse";
 import Update from "./pages/page-components/loginmypage/Update";
+import Login from "./pages/page-components/loginmypage/Login";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
           <Route path="/PostLayout" element={<PostLayout />} />
           <Route path="/PostingLayout" element={<PostingLayout />} />
           <Route path="/Signup" element={<Signup />} />
-
+          <Route path="/Login" element={<Login />} />
           <Route path="/FindId" element={<FindId />} />
           <Route path="/FindPw" element={<FindPw />} />
           <Route path="/MyPage" element={<MyPage />} />
