@@ -56,7 +56,7 @@ const StoreListBoxMap = () => {
             STORE_TYPE: store.storeType,
             STORE_NAME: store.storeName,
             STORE_TEL: store.storeTel,
-            STORE_ADDR: store.stroeAddr,
+            STORE_ADDR: store.storeAddr,
           }));
 
           setStoresData(processedData);
@@ -110,10 +110,10 @@ const StoreListBoxMap = () => {
 
               <StoreRaitingBox01>
                 <StroeRatingStar01 alt="별표 이미지" src={RatingStar01} />
-                <StroeRating01>{store.rating}</StroeRating01>
+                <StroeRating01>5.0</StroeRating01>
               </StoreRaitingBox01>
 
-              <StroeUpdate01>{store.updateDate}</StroeUpdate01>
+              <StroeUpdate01>2023.11.13</StroeUpdate01>
             </StorListInfo01>
             <StoreContacInfo>
               <StoreContac01>{store.STORE_TEL}</StoreContac01>

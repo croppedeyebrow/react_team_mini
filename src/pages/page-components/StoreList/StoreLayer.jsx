@@ -24,28 +24,6 @@ import StoreListMap from "../StoreList/ListPageMap";
 const StoreLayer = () => {
   return (
     <CenterLayer>
-      {/* <FilterContainer>
-        <FilterBox01>
-          <PeopleNum>인원수</PeopleNum>
-        </FilterBox01>
-
-        <FilterBox02>
-          <FoodCheck>음식</FoodCheck>
-        </FilterBox02>
-
-        <FilterBox03>
-          <RegionCheck>지역</RegionCheck>
-        </FilterBox03>
-
-        <FilterBox04>
-          <PriceCheck>가격대</PriceCheck>
-        </FilterBox04>
-
-        <FilterBox05>
-          <ParkingCheck>주차</ParkingCheck>
-        </FilterBox05>
-      </FilterContainer> */}
-
       <ListMain>
         {/* <StoreMainMap> */}
         <StoreListMap />

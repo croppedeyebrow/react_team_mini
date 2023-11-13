@@ -96,12 +96,12 @@ const HeaderUserInterface = styled.img`
 
 const DetailSearchScreenWrapper = styled.div`
   position: fixed;
-  left: -23px;
+  left: 0px;
   width: 100%;
   height: 312px;
   top: 80px;
   background-color: rgba(0, 0, 0, 0.15);
-  z-index: 3;
+  z-index: 5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,7 +116,7 @@ const ModalBackground = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
-  z-index: 2;
+  z-index: 4;
   cursor: pointer;
 `;
 

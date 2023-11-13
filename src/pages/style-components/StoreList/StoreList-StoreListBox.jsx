@@ -18,17 +18,18 @@ export const StoreItem = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+  box-shadow: 0px 3px 14px -5px #555555;
 `;
 
-export const StoreListImgBox01 = styled.img`
-  width: 255px;
-  height: 200px;
-  /* background-color: #666; */
-  margin-left: 33px;
-  border: 1px solid #666;
-  display: flex;
-  flex-direction: row;
-`;
+// export const StoreIMGBOX = styled.img`
+//   width: 255px;
+//   height: 200px;
+//   /* background-color: #666; */
+//   margin-left: 33px;
+//   border: 1px solid #666;
+//   display: flex;
+//   flex-direction: row;
+// `;
 
 export const HeartIcon01 = styled.img`
   height: 30px;

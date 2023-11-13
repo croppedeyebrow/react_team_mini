@@ -5,7 +5,7 @@ export const CenterLayer = styled.div`
   flex-direction: row;
   padding-top: 1rem;
   width: 1280px;
-  height: 2200px;
+  height: 2600px;
 `;
 
 export const FilterContainer = styled.div`
@@ -110,8 +110,8 @@ export const ParkingCheck = styled.div`
 `;
 
 export const ListMain = styled.div`
-  width: 960px;
-  height: 2030px;
+  width: 1280px;
+  height: 2600px;
   border: 4px solid #666;
   border-radius: 4px;
   display: flex;
@@ -143,7 +143,7 @@ export const CenterWord = styled.div`
   font-size: 24px;
   font-weight: 600;
   box-shadow: 1px 1px;
-  margin: 1rem 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const StyledScreen = styled.div`
