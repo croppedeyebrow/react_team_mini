@@ -13,9 +13,11 @@ import {
   StoreContacInfo,
   StoreContac01,
   StoreAddr01,
+  PaginationBox,
+  CarouselBox,
 } from "../../style-components/StoreList/StoreList-StoreListBox";
 // import StoreListImg01 from "../../images/음식 테스트 이미지.jpg";
-import HeartImg01 from "../../../images/heart.png";
+import HeartImg01 from "../../../images/HearIcon.png";
 import RatingStar01 from "../../../images/star.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -23,22 +25,13 @@ import styled from "styled-components";
 import AxiosApi from "../../../Api/AxiosApi";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-const Carouselbox = styled.div`
-  width: 255px;
-  height: 200px;
-  background-color: #666;
-  margin-left: 33px;
-  border: 1px solid #666;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  object-fit: center;
-`;
+import Pagination from "react-js-pagination";
 
 const StoreListBoxMap = () => {
   const [storesData, setStoresData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
 
   useEffect(() => {
     const fetchStoreData = async () => {
@@ -75,54 +68,90 @@ const StoreListBoxMap = () => {
     return <div>Loading...</div>;
   }
 
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageData = storesData.slice(startIndex, endIndex);
+
   return (
-    <StoreListBox01>
-      {storesData.map((store) => (
-        <Link to={`/StoreLayout/`} key={store.STORE_ID}>
-          {/* <Link to={`/StoreLayout/${store.STORE_ID}`} key={store.STORE_ID}></Link> */}
-          <StoreItem>
-            <Carouselbox>
-              <Carousel
-                showArrows={false}
-                autoPlay={true}
-                infiniteLoop={true}
-                showThumbs={false}
-                selectedItem={0} // 필요한 대로 기본 선택된 항목을 설정
-                className="w-[400px] lg:hidden"
-              >
-                {[
-                  store.STORE_IMG_01,
-                  store.STORE_IMG_02,
-                  store.STORE_IMG_03,
-                  store.STORE_IMG_04,
-                  store.STORE_IMG_05,
-                ].map((imgUrl, index) => (
-                  <div key={index}>
-                    <img alt={`이미지 ${index + 1}`} src={imgUrl} />
-                  </div>
-                ))}
-              </Carousel>
-            </Carouselbox>
-            <HeartIcon01 alt="하트 이미지" src={HeartImg01} />
-            <StorListInfo01>
-              <StoreType01>{store.STORE_TYPE}</StoreType01>
-              <StoreNam01>{store.STORE_NAME}</StoreNam01>
+    <div>
+      <StoreListBox01>
+        {currentPageData.map((store) => (
+          <Link to={`/StoreLayout/`} key={store.STORE_ID}>
+            {/* <Link to={`/StoreLayout/${store.STORE_ID}`} key={store.STORE_ID}></Link> */}
+            <StoreItem>
+              <CarouselBox>
+                <Carousel
+                  showArrows={false}
+                  autoPlay={true}
+                  infiniteLoop={true}
+                  showThumbs={false}
+                  selectedItem={1} // 필요한 대로 기본 선택된 항목을 설정
+                  className="w-[400px] lg:hidden"
+                >
+                  {[
+                    store.STORE_IMG_01,
+                    store.STORE_IMG_02,
+                    store.STORE_IMG_03,
+                    store.STORE_IMG_04,
+                    store.STORE_IMG_05,
+                  ].map((imgUrl, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        transform: "scale(1)",
+                        width: "200px",
+                        height: "200px",
+                      }}
+                    >
+                      <img
+                        alt={`이미지 ${index + 1}`}
+                        src={imgUrl}
+                        style={{
+                          objectFit: "cover",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </CarouselBox>
 
-              <StoreRaitingBox01>
-                <StroeRatingStar01 alt="별표 이미지" src={RatingStar01} />
-                <StroeRating01>5.0</StroeRating01>
-              </StoreRaitingBox01>
+              <HeartIcon01 alt="하트 이미지" src={HeartImg01} />
+              <StorListInfo01>
+                <StoreType01>{store.STORE_TYPE}</StoreType01>
+                <StoreNam01>{store.STORE_NAME}</StoreNam01>
 
-              <StroeUpdate01>2023.11.13</StroeUpdate01>
-            </StorListInfo01>
-            <StoreContacInfo>
-              <StoreContac01>{store.STORE_TEL}</StoreContac01>
-              <StoreAddr01>{store.STORE_ADDR}</StoreAddr01>
-            </StoreContacInfo>
-          </StoreItem>
-        </Link>
-      ))}
-    </StoreListBox01>
+                <StoreRaitingBox01>
+                  <StroeRatingStar01 alt="별표 이미지" src={RatingStar01} />
+                  <StroeRating01>5.0</StroeRating01>
+                </StoreRaitingBox01>
+
+                <StroeUpdate01>2023.11.13</StroeUpdate01>
+              </StorListInfo01>
+              <StoreContacInfo>
+                <StoreContac01>{store.STORE_TEL}</StoreContac01>
+                <StoreAddr01>{store.STORE_ADDR}</StoreAddr01>
+              </StoreContacInfo>
+            </StoreItem>
+          </Link>
+        ))}
+
+        <PaginationBox>
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={itemsPerPage}
+            totalItemsCount={storesData.length}
+            pageRangeDisplayed={8}
+            onChange={handlePageChange}
+          ></Pagination>
+        </PaginationBox>
+      </StoreListBox01>
+    </div>
   );
 };
 
