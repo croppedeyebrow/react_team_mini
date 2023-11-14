@@ -66,7 +66,8 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + "/users/del", del); // 회원 탈퇴 API에 POST 요청
   },
-  StroeListGet: async (STORE_ID) => {
+  //식당 리스트
+  StoreListGet: async (STORE_ID) => {
     return await axios.get(
       KH_DOMAIN + `/stores/StoreInfo/?storeIds=${STORE_ID}`
     );

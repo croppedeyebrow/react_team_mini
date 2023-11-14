@@ -43,7 +43,7 @@ const StoreListBoxMap = () => {
   useEffect(() => {
     const fetchStoreData = async () => {
       try {
-        const response = await AxiosApi.StroeListGet("storeIds");
+        const response = await AxiosApi.StoreListGet("storeIds");
         console.log(response);
         if (response.status === 200) {
           const processedData = response.data.map((store) => ({
