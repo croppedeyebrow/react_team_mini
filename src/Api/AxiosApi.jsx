@@ -66,6 +66,11 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + "/users/del", del); // 회원 탈퇴 API에 POST 요청
   },
+  StroeListGet: async (STORE_ID) => {
+    return await axios.get(
+      KH_DOMAIN + `/stores/StoreInfo/?storeIds=${STORE_ID}`
+    );
+  },
 };
 
 export default AxiosApi; // AxiosApi 객체를 모듈로 내보냄
