@@ -6,9 +6,9 @@ import {
 } from "../../style-components/loginmypage/MyPageComponent";
 import Settings from "../../../images/settings.png";
 import AxiosApi from "../../../Api/AxiosApi";
-import Modal from "../../../util/Modal";
+import Modal from "../../../utils/modal";
 import ProfileImg from "../../../images/profileImg.png";
-import ModalUpd from "../../../util/Modal_Upd";
+// import ModalUpd from "../../../util/Modal_Upd";
 
 //닉네임
 
