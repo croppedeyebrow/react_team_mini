@@ -66,6 +66,77 @@ const AxiosApi = {
     };
     return await axios.post(KH_DOMAIN + "/users/del", del); // 회원 탈퇴 API에 POST 요청
   },
+//식당 리스트
+StoreListGet: async (STORE_ID) => {
+  return await axios.get(
+    KH_DOMAIN + `/stores/StoreInfo/?storeIds=${STORE_ID}`
+  );
+},
+
+// STORE ////////////////////////////////////////////////////////////////////////////
+// Store Info
+storeInfo: async (STORE_ID) => {
+  return await axios.get(
+    KH_DOMAIN + `/detail/StoreDetailInfo/?storeId=${STORE_ID}`);
+},
+
+// Store Map
+
+
+// Store Menu
+storeMenu: async (STORE_ID) => {
+  return await axios.get(
+    KH_DOMAIN + `/detail/menu/?storeId=${STORE_ID}`);
+},
+
+// Store Review
+storeReview: async (STORE_ID) => {
+  return await axios.get(
+    KH_DOMAIN + `/detail/review/?storeId=${STORE_ID}`);
+},
+
+// Store ReviewWrite
+storeReviewWrite: async (STORE_ID, userProfileImg, nick, reviewDate, score, reviewTxt, reviewImg01, reviewImg02, reviewImg03, reviewImg04, reviewImg05 ) => {
+  
+  const Review = {
+    storeId: STORE_ID,
+    userProfileImg: userProfileImg,
+    nick: nick,
+    reviewDate: reviewDate,
+    score: score,
+    reviewTxt: reviewTxt,
+    reviewImg01: reviewImg01,
+    reviewImg02: reviewImg02,
+    reviewImg03: reviewImg03,
+    reviewImg04: reviewImg04,
+    reviewImg05: reviewImg05,
+  };
+  return await axios.post(KH_DOMAIN + `/reviewWrite`, Review); 
+},
+
+// Store Post
+storePost: async (STORE_ID) => {
+  return await axios.get(
+    KH_DOMAIN + `/detail/Post/?storeId=${STORE_ID}`);
+},
+
+// Store Reserve
+storeReserve: async (storeId, reserveDate, reserveTime, person, clientName, clientTel, clientEmail, clientWish ) => {
+  const Reserve = {
+    storeId: storeId,
+    reserveDate: reserveDate,
+    reserveTime: reserveTime,
+    person: person,
+
+    clientName: clientName,
+    clientTel: clientTel,
+    clientEmail: clientEmail,
+    clientWish: clientWish,
+  };
+  return await axios.post(KH_DOMAIN + `/StoreReserve`, Reserve);
+}
+
+
 };
 
 export default AxiosApi; // AxiosApi 객체를 모듈로 내보냄

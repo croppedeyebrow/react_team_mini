@@ -41,7 +41,7 @@ export const ProFileImg = styled.div`
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    background-image: url('https://firebasestorage.googleapis.com/v0/b/matps-4d340.appspot.com/o/%EC%9C%A0%EC%A0%80%20%ED%94%84%EB%A1%9C%ED%95%84%2FUSER-1.jpg?alt=media&token=c18d9714-4364-4457-8ef8-20c93863cabd');
+    background-image: url({review.reviewImg01});
     background-size: cover;
     box-shadow: 0px 3px 14px -5px #555555;
     margin-bottom: 1rem;

@@ -16,8 +16,11 @@ const StoreReview = forwardRef((props, ref) => {
         myRef.current.scrollIntoView({ behavior: "smooth" });
       },
     }));
-
     const [visible, setVisible] = useState(false);
+
+
+
+
     return (
         <Container ref={myRef}>
             <TitleBox>
@@ -36,6 +39,8 @@ const StoreReview = forwardRef((props, ref) => {
             <ReviewBox/>
         </Container>
     );
+
+
 });
 
 export default StoreReview;

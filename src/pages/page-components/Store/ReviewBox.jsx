@@ -1,31 +1,59 @@
+import AxiosApi from "../../../Api/AxiosApi";
 import {Bar, ScrollBox, Profile, ProFileImg, ReviewNickname, ReviewTxt, ReviewArea, ReviewImgFlexBox, Images, ReviewFlex} from "../../style-components/Store/Store-ReviewBox";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 
 const ReviewBox = () => {
+
+    const [reviews, setReviews] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchReviews = async () => {
+            try {
+                const response = await AxiosApi.get('storeReview');
+                setReviews(response.data);
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+                setError(error);
+            }
+        };
+
+        fetchReviews();
+    }, []);
+
+    if (error) return <div>Error: {error.message}</div>;
+
+
     return(
         <>
         <Bar/>
-        <ReviewFlex>
-            <Profile>
-                <ProFileImg/>
-                <ReviewNickname>닉네임</ReviewNickname>
-            </Profile>
-            <ReviewArea>
-                <ReviewTxt>2023. 10. 22.</ReviewTxt>
-                <ReviewTxt>★★★★</ReviewTxt>
-                <ReviewTxt>감각적인 분위기와 특급 음식, 럭셔리한 느낌이 가득한 곳. 이곳에서 느끼는 감동은 다르다!</ReviewTxt>
-                
-                <ScrollBox className="scrollStyle">
-                    <ReviewImgFlexBox>
-                        <Images></Images>
-                        <Images></Images>
-                        <Images></Images>
-                        <Images></Images>
-                    </ReviewImgFlexBox>
-                </ScrollBox>
-            </ReviewArea>
-        </ReviewFlex>
+            <ReviewFlex>
+                {reviews.map(review => (
+                    <div key={review.id}>
+                        <Profile>
+                            <ProFileImg
+                            style={{backgroundImage: `url("${review.userProfileImg}")`}}/>
+                            <ReviewNickname>{review.Nickname}</ReviewNickname>
+                        </Profile>
+                        <ReviewArea>
+                            <ReviewTxt>{review.date}</ReviewTxt>
+                            <ReviewTxt>*****</ReviewTxt>
+                            <ReviewTxt>{review.comment}</ReviewTxt>
+                            <ScrollBox className="scrollStyle">
+                                <ReviewImgFlexBox>
+                                    {Array.isArray(review.images) && review.images.map(image => (
+                                        <Images key={image.id} src={image.url} />
+                                    ))}
+                                </ReviewImgFlexBox>
+                            </ScrollBox>
+                        </ReviewArea>
+                    </div>
+                ))}
+            </ReviewFlex>
         </> 
+
     );
 };
 

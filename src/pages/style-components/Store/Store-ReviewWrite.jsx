@@ -14,6 +14,14 @@ export const TextArea = styled.div`
     resize: none;
   }
 `;
+export const FileUploadContainer = styled.div`
+`;
+export const StyledInput = styled.div`
+`;
+export const UploadButton = styled.div`
+`;
+export const UserImage = styled.img`
+`;
 export const WriteBtn = styled.div`
     width: 8rem;
     height: 3rem;
@@ -25,4 +33,7 @@ export const WriteBtn = styled.div`
     text-align: center;
     border-radius: 3rem;
     margin: 1rem auto;
+`
+export const SubmitButton = styled.div`
+  
 `

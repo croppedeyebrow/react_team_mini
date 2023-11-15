@@ -2,7 +2,10 @@ import {Container, TitleBox, PostTitle, More} from "../../style-components/Store
 import PostBox from "./PostBox";
 import plus from "../../../images/add.png";
 
+
 const StorePost = () => {
+   
+
     return (
         <Container>
             <TitleBox>
