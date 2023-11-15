@@ -17,7 +17,7 @@ import {
   CarouselBox,
 } from "../../style-components/StoreList/StoreList-StoreListBox";
 // import StoreListImg01 from "../../images/음식 테스트 이미지.jpg";
-import HeartImg01 from "../../../images/HearIcon.png";
+import HeartImg01 from "../../../images/heart.png";
 import RatingStar01 from "../../../images/star.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
