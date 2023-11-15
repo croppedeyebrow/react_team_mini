@@ -4,7 +4,7 @@ export const CarouselBox = styled.div`
   display: flex;
   width: 255px;
   height: 200px;
-  background-color: #fff
+  background-color: #faf4f4
   margin-left: 33px;
   border: 1px solid #666;
   display: flex;
