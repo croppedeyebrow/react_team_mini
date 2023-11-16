@@ -42,12 +42,18 @@ export const Items = styled.div`
       }
     }
   }
+  .one, .two, .three {
+  width: 100%; /* div의 너비를 설정합니다. 필요에 따라 조정하세요. */
+  white-space: nowrap; /* 텍스트가 div의 너비를 넘어갈 경우 줄바꿈을 하지 않게 합니다. */
+  overflow: hidden; /* 너비를 넘어간 텍스트를 잘라냅니다. */
+  text-overflow: ellipsis; /* 너비를 넘어간 텍스트를 줄임표(...)로 표시합니다. */
+}
   .one {
-    width: 30%;
+    width: 28%;
     height: 100%;
   }
   .two {
-    width: 30%;
+    width: 28%;
     height: 100%;
   }
   .three {
@@ -101,6 +107,7 @@ export const Items = styled.div`
       width: 100%;
       text-align: center;
       font-size: 1.5rem;
+      
     }
   }
   &.3 {
