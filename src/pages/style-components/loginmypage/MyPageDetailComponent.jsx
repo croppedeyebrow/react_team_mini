@@ -38,20 +38,20 @@ export const Items = styled.div`
       p {
         font-size: 1.875rem;
         font-weight: 800;
-        margin: 0px;
+        margin-top: 0.5rem;
       }
     }
   }
   .one {
-    width: 16rem;
+    width: 30%;
     height: 100%;
   }
   .two {
-    width: 20rem;
+    width: 30%;
     height: 100%;
   }
   .three {
-    width: 10rem;
+    width: 40%;
     height: 100%;
   }
   .four {
@@ -96,8 +96,11 @@ export const Items = styled.div`
       }
     }
     .contents {
+      margin-top: 1rem;
       display: flex;
       width: 100%;
+      text-align: center;
+      font-size: 1.5rem;
     }
   }
   &.3 {

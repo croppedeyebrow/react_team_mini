@@ -48,9 +48,9 @@ const ReviewWrite = () => {
   };
 
   const handleSubmit = async () => {
-    console.log(score, reviewTxt, userId, url);
+    console.log(nick, score, reviewTxt, url);
     try {
-      const rsp = await AxiosApi.boardWrite(score, reviewTxt, userId, url);
+      const rsp = await AxiosApi.boardWrite(nick, score, reviewTxt, url);
       if (rsp.data === true) {
         alert("글쓰기 성공");
         navigate("/Review");
@@ -90,8 +90,8 @@ const ReviewWrite = () => {
           <ReviewFlex>
               <Profile>
                   <UserProfileImg
-                  style={{backgroundImage: `url("${reviewWrite.userProfileImg}")`}}/>
-                  <ReviewNickname>{reviewWrite.nick}</ReviewNickname>
+                  style={{backgroundImage: `url("${userProfileImg}")`}}/>
+                  <ReviewNickname>{nick}</ReviewNickname>
               </Profile>
               <ReviewArea>
                   <ReviewTxt>{formattedDate}</ReviewTxt>
@@ -116,7 +116,7 @@ const ReviewWrite = () => {
                   <ScrollBox className="scrollStyle">
                       <ReviewImgFlexBox>
                           <Images
-                          style={{backgroundImage: `url("${reviewWrite.url}")`}}></Images>
+                          style={{backgroundImage: `url("${url}")`}}></Images>
                       </ReviewImgFlexBox>
                   </ScrollBox>
 
