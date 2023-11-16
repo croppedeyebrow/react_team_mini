@@ -21,7 +21,7 @@ const MyPageDetail = () => {
     "최근 본 맛집",
   ];
   const titleone = ["상호명", "상호명", "상호명", "상호명", "상호명"];
-  const titletwo = ["주소", "예약일자", "작성일시", "작성일시", "주소"];
+  const titletwo = ["주소", "예약일자", "작성일자", "작성일자", "주소"];
   const titlethree = ["영업시간", "예약시간", "글내용", "제목", "영업시간"];
   const titlefour = [
     "영업시간",
@@ -66,11 +66,11 @@ const MyPageDetail = () => {
   }, [selectedCategory]);
 
   const contentone = [
+    "",
+    "",
     res.store_name,
-    res.store_name,
-    res.store_name,
-    res.store_name,
-    res.store_name,
+    "",
+    "",
   ];
   const contenttwo = ["", "", res.review_date, "", ""];
   const contentthree = ["", "", res.review_text, "", ""];

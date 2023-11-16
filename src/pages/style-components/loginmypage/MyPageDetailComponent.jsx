@@ -49,15 +49,15 @@ export const Items = styled.div`
   text-overflow: ellipsis; /* 너비를 넘어간 텍스트를 줄임표(...)로 표시합니다. */
 }
   .one {
-    width: 28%;
+    width: 25%;
     height: 100%;
   }
   .two {
-    width: 28%;
+    width: 15%;
     height: 100%;
   }
   .three {
-    width: 40%;
+    width: 55%;
     height: 100%;
   }
   .four {
